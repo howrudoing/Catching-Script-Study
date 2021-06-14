@@ -10,13 +10,23 @@ $(document).ready(function () {
     $("#sendRequest").click(function () {
         UrlExists('chrome-extension://iglbakfobmoijpbigmlfklckogbefnlf/tracker/tracker.html', function (status) {
             if (status === 200) {
-                console.log("Virtru Exists!");
+                console.log("MTurk Suite Exists!");
             } else if (status === 404) {
-                console.log("No Virtru :(");
+                console.log("MTurk Suite Exists! :(");
             } else {
-                console.log("Something is wrong.");
+                console.log("MTurk Suite: Something is wrong.");
             }
         });
+        UrlExists('chrome-extension://gefompgkggmjbcihdkdbfddhjnnceipm/popup.html', function (status) {
+            if (status === 200) {
+                console.log("pandaCrazy Exists!");
+            } else if (status === 404) {
+                console.log("pandaCrazy Exists! :(");
+            } else {
+                console.log("pandaCrazy: Something is wrong.",status);
+            }
+        });
+        
 
     });
 
