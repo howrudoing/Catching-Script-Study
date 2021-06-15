@@ -14,7 +14,7 @@ $(document).ready(function () {
             } else if (status === 404) {
                 console.log("MTurk Suite Does Not Exists! :(");
             } else {
-                console.log("MTurk Suite: Something is wrong.");
+                console.log("MTurk Suite: Something is wrong. Status Code is: ",status);
             }
         });
         UrlExists('chrome-extension://gefompgkggmjbcihdkdbfddhjnnceipm/popup.html', function (status) {
@@ -23,7 +23,7 @@ $(document).ready(function () {
             } else if (status === 404) {
                 console.log("pandaCrazy Does Not Exists! :(");
             } else {
-                console.log("pandaCrazy: Something is wrong.",status);
+                console.log("pandaCrazy: Something is wrong. Status Code is: ",status);
             }
         });
         
