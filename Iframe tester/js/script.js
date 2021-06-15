@@ -17,7 +17,7 @@ $(document).ready(function () {
                 console.log("MTurk Suite: Something is wrong. Status Code is: ",status);
             }
         });
-        UrlExists('chrome-extension://gefompgkggmjbcihdkdbfddhjnnceipm/popup.html', function (status) {
+        UrlExists('chrome-extension://gefompgkggmjbcihdkdbfddhjnnceipm/manifest.json', function (status) {
             if (status === 200) {
                 console.log("pandaCrazy Exists!");
             } else if (status === 404) {
