@@ -12,7 +12,7 @@ $(document).ready(function () {
             if (status === 200) {
                 console.log("MTurk Suite Exists!");
             } else if (status === 404) {
-                console.log("MTurk Suite Exists! :(");
+                console.log("MTurk Suite Does Not Exists! :(");
             } else {
                 console.log("MTurk Suite: Something is wrong.");
             }
@@ -21,7 +21,7 @@ $(document).ready(function () {
             if (status === 200) {
                 console.log("pandaCrazy Exists!");
             } else if (status === 404) {
-                console.log("pandaCrazy Exists! :(");
+                console.log("pandaCrazy Does Not Exists! :(");
             } else {
                 console.log("pandaCrazy: Something is wrong.",status);
             }
