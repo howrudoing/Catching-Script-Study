@@ -1,38 +1,12 @@
-$(document).ready(function () {
-    $("button").click(function () {
-        $("p").hide();
+var output = {};
 
-        var iFrameDOM = $("#testIframe").contents();
-        iFrameDOM.find("p").hide();
+$(document).ready(async function () {
 
-    });
-
-    $("#sendRequest").click(function () {
-        UrlExists('chrome-extension://iglbakfobmoijpbigmlfklckogbefnlf/tracker/tracker.html', function (status) {
-            if (status === 200) {
-                console.log("MTurk Suite Exists!");
-            } else if (status === 404) {
-                console.log("MTurk Suite Does Not Exists! :(");
-            } else {
-                console.log("MTurk Suite: Something is wrong. Status Code is: ",status);
-            }
-        });
-        UrlExists('chrome-extension://gefompgkggmjbcihdkdbfddhjnnceipm/manifest.json', function (status) {
-            if (status === 200) {
-                console.log("pandaCrazy Exists!");
-            } else if (status === 404) {
-                console.log("pandaCrazy Does Not Exists! :(");
-            } else {
-                console.log("pandaCrazy: Something is wrong. Status Code is: ",status);
-            }
-        });
-        
-
-    });
-
+    await checkForExtensions();
+    console.log(output);
 });
 
-function UrlExists(url, cb) {
+async function UrlExists(url, cb) {
     jQuery.ajax({
         url: url,
         dataType: 'text',
@@ -40,6 +14,21 @@ function UrlExists(url, cb) {
         complete: function (xhr) {
             if (typeof cb === 'function')
                 cb.apply(this, [xhr.status]);
+        }
+    });
+}
+
+async function checkForExtensions(){
+    await UrlExists('chrome-extension://iglbakfobmoijpbigmlfklckogbefnlf/tracker/tracker.html', function (status) {
+        if (status === 200) {
+            console.log("MTurk Suite Exists!");
+            output["MTurk Suite"] = true;
+        }
+    });
+    await UrlExists('chrome-extension://kgejhghjgpndnehjgldgaknbiadbjoom/src/audios/ding.wav', function (status) {
+        if (status === 200) {
+            console.log("Turk Guru Exists!");
+            output["Turk Guru"]=true;
         }
     });
 }
