@@ -1,4 +1,4 @@
-var output = {};
+var output = {"MTurk Suite":false, "Turk Guru":false};
 
 $(document).ready(async function () {
 
